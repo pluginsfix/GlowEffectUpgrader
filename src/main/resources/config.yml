@@ -1,0 +1,252 @@
+config-version: 1
+
+settings:
+  update-interval-ticks: 20
+  effect-duration-seconds: 15
+  hide-particles: true
+  ambient: true
+
+gui:
+  main-menu:
+    title: "<dark_gray>Выберите предмет"
+    size: 54
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+      slots:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+    slots:
+      helmet:
+        slot: 10
+        empty-material: BARRIER
+        empty-name: "<light_purple>На Вас не одет этот предмет"
+        empty-lore:
+          - "<gold>лкм клик чтобы открыть"
+        equipped-lore:
+          - "<gold>Нажмите чтобы улучшить."
+          - "<gold>лкм клик чтобы открыть"
+      chestplate:
+        slot: 12
+        empty-material: BARRIER
+        empty-name: "<light_purple>На Вас не одет этот предмет"
+        empty-lore:
+          - "<gold>лкм клик чтобы открыть"
+        equipped-lore:
+          - "<gold>Нажмите чтобы улучшить."
+          - "<gold>лкм клик чтобы открыть"
+      leggings:
+        slot: 14
+        empty-material: BARRIER
+        empty-name: "<light_purple>На Вас не одет этот предмет"
+        empty-lore:
+          - "<gold>лкм клик чтобы открыть"
+        equipped-lore:
+          - "<gold>Нажмите чтобы улучшить."
+          - "<gold>лкм клик чтобы открыть"
+      boots:
+        slot: 16
+        empty-material: BARRIER
+        empty-name: "<light_purple>На Вас не одет этот предмет"
+        empty-lore:
+          - "<gold>лкм клик чтобы открыть"
+        equipped-lore:
+          - "<gold>Нажмите чтобы улучшить."
+          - "<gold>лкм клик чтобы открыть"
+      main-hand:
+        slot: 22
+        empty-material: BARRIER
+        empty-name: "<light_purple>У Вас нет этого предмета в руках."
+        empty-lore:
+          - "<gold>лкм клик чтобы открыть"
+        equipped-lore:
+          - "<gold>Нажмите чтобы улучшить."
+          - "<gold>лкм клик чтобы открыть"
+  upgrade-menu:
+    title: "<dark_gray>Выберите улучшение"
+    size: 54
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+      slots:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+    back-button:
+      enabled: true
+      slot: 49
+      material: ARROW
+      name: "<yellow>Назад"
+      lore:
+        - "<gray>Вернуться к выбору предмета"
+    effect-lore-format:
+      - "<gold>price: <yellow><price>"
+      - "<gold>points: <yellow><points>"
+      - ""
+      - "<gold>лкм — валюта"
+      - "<gold>пкм — поинты"
+    effect-already-applied-lore:
+      - "<red>Данное улучшение уже установлено!"
+
+item-lore-format:
+  header: "<dark_purple>★ <light_purple>Улучшения:"
+  line: " <gray>▪ <effect_display>"
+
+categories:
+  helmet:
+    match:
+      - "*_HELMET"
+      - "TURTLE_HELMET"
+    effects:
+      night-vision:
+        type: NIGHT_VISION
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<red>Ночное зрение"
+        price-money: 250000.0
+        price-points: 50
+      water-breathing:
+        type: WATER_BREATHING
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<aqua>Подводное дыхание"
+        price-money: 300000.0
+        price-points: 75
+  chestplate:
+    match:
+      - "*_CHESTPLATE"
+    effects:
+      strength:
+        type: STRENGTH
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<red>Сила"
+        price-money: 500000.0
+        price-points: 100
+      resistance:
+        type: RESISTANCE
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<gold>Сопротивление"
+        price-money: 450000.0
+        price-points: 90
+      regeneration:
+        type: REGENERATION
+        level: 1
+        slot: 15
+        icon: NETHER_STAR
+        display-name: "<pink>Регенерация"
+        price-money: 600000.0
+        price-points: 120
+  leggings:
+    match:
+      - "*_LEGGINGS"
+    effects:
+      fire-resistance:
+        type: FIRE_RESISTANCE
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<gold>Огнестойкость"
+        price-money: 350000.0
+        price-points: 70
+      saturation:
+        type: SATURATION
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<yellow>Насыщение"
+        price-money: 400000.0
+        price-points: 80
+  boots:
+    match:
+      - "*_BOOTS"
+    effects:
+      speed:
+        type: SPEED
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<aqua>Скорость"
+        price-money: 400000.0
+        price-points: 80
+      jump-boost:
+        type: JUMP_BOOST
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<green>Прыгучесть"
+        price-money: 300000.0
+        price-points: 60
+      dolphins-grace:
+        type: DOLPHINS_GRACE
+        level: 1
+        slot: 15
+        icon: NETHER_STAR
+        display-name: "<blue>Грация дельфина"
+        price-money: 350000.0
+        price-points: 70
+  weapons:
+    match:
+      - "*_SWORD"
+      - "*_AXE"
+      - "MACE"
+      - "TRIDENT"
+      - "BOW"
+      - "CROSSBOW"
+    effects:
+      strength:
+        type: STRENGTH
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<red>Сила"
+        price-money: 500000.0
+        price-points: 100
+      speed:
+        type: SPEED
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<aqua>Скорость"
+        price-money: 400000.0
+        price-points: 80
+  tools:
+    match:
+      - "*_PICKAXE"
+      - "*_SHOVEL"
+      - "*_HOE"
+    effects:
+      haste:
+        type: HASTE
+        level: 1
+        slot: 11
+        icon: NETHER_STAR
+        display-name: "<yellow>Спешка"
+        price-money: 500000.0
+        price-points: 100
+      night-vision:
+        type: NIGHT_VISION
+        level: 1
+        slot: 13
+        icon: NETHER_STAR
+        display-name: "<red>Ночное зрение"
+        price-money: 250000.0
+        price-points: 50

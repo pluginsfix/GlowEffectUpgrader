@@ -1,0 +1,27 @@
+name: GlowEffectUpgrader
+version: '${project.version}'
+main: pluginsfix.gloweffectupgrader.GlowEffectUpgrader
+api-version: '1.21'
+author: pluginsfix
+softdepend:
+  - Vault
+  - PlayerPoints
+commands:
+  smith:
+    description: Open effect upgrade menu
+    aliases:
+      - upgrade
+    permission: eup.use
+  cleareffects:
+    description: Clear all upgrader effects from held item
+    permission: eup.clear
+permissions:
+  eup.use:
+    description: Allows using /smith and /upgrade menu
+    default: true
+  eup.clear:
+    description: Allows clearing effects from item
+    default: op
+  eup.admin:
+    description: Allows reloading plugin configuration
+    default: op
