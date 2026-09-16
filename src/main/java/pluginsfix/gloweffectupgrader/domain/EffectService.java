@@ -126,7 +126,7 @@ public final class EffectService {
         List<Component> currentLore = meta.lore();
         List<Component> cleanLore = new ArrayList<>();
         if (currentLore != null) {
-            Component headerComp = messages.miniMessage().deserialize(config.itemLoreHeader());
+            Component headerComp = messages.parseItem(config.itemLoreHeader());
             for (Component line : currentLore) {
                 if (line.equals(headerComp)) {
                     break;
@@ -139,10 +139,10 @@ public final class EffectService {
             if (!cleanLore.isEmpty()) {
                 cleanLore.add(Component.empty());
             }
-            cleanLore.add(messages.miniMessage().deserialize(config.itemLoreHeader()));
+            cleanLore.add(messages.parseItem(config.itemLoreHeader()));
             for (AppliedEffect eff : effects) {
-                Component effectDisplay = messages.miniMessage().deserialize(eff.displayName());
-                Component lineComp = messages.miniMessage().deserialize(
+                Component effectDisplay = messages.parseItem(eff.displayName());
+                Component lineComp = messages.parseItem(
                         config.itemLoreLine(),
                         Placeholder.component("effect_display", effectDisplay)
                 );

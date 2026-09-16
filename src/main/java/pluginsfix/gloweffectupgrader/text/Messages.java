@@ -1,8 +1,8 @@
 package pluginsfix.gloweffectupgrader.text;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -63,6 +63,10 @@ public final class Messages {
 
     public void send(CommandSender sender, String key, TagResolver... resolvers) {
         sender.sendMessage(getPrefixedComponent(key, resolvers));
+    }
+
+    public Component parseItem(String text, TagResolver... resolvers) {
+        return miniMessage.deserialize("<!italic>" + text, resolvers).decoration(TextDecoration.ITALIC, false);
     }
 
     public MiniMessage miniMessage() {

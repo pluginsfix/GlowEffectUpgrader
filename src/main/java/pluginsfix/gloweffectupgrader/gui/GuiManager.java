@@ -32,7 +32,7 @@ public final class GuiManager {
 
     public void openMainMenu(Player player) {
         MainSelectHolder holder = new MainSelectHolder();
-        Component title = messages.miniMessage().deserialize(config.mainMenuTitle());
+        Component title = messages.parseItem(config.mainMenuTitle());
         Inventory inventory = Bukkit.createInventory(holder, config.mainMenuSize(), title);
         holder.setInventory(inventory);
 
@@ -75,7 +75,7 @@ public final class GuiManager {
         }
 
         UpgradeSelectHolder holder = new UpgradeSelectHolder(slotType, item);
-        Component title = messages.miniMessage().deserialize(config.upgradeMenuTitle());
+        Component title = messages.parseItem(config.upgradeMenuTitle());
         Inventory inventory = Bukkit.createInventory(holder, config.upgradeMenuSize(), title);
         holder.setInventory(inventory);
 
@@ -104,7 +104,7 @@ public final class GuiManager {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.displayName(messages.miniMessage().deserialize(name));
+            meta.displayName(messages.parseItem(name));
             item.setItemMeta(meta);
         }
         return item;
@@ -114,10 +114,10 @@ public final class GuiManager {
         ItemStack item = new ItemStack(slotConfig.emptyMaterial());
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.displayName(messages.miniMessage().deserialize(slotConfig.emptyName()));
+            meta.displayName(messages.parseItem(slotConfig.emptyName()));
             List<Component> lore = new ArrayList<>();
             for (String line : slotConfig.emptyLore()) {
-                lore.add(messages.miniMessage().deserialize(line));
+                lore.add(messages.parseItem(line));
             }
             meta.lore(lore);
             item.setItemMeta(meta);
@@ -131,7 +131,7 @@ public final class GuiManager {
         if (meta != null) {
             List<Component> lore = new ArrayList<>();
             for (String line : slotConfig.equippedLore()) {
-                lore.add(messages.miniMessage().deserialize(line));
+                lore.add(messages.parseItem(line));
             }
             List<Component> existingLore = meta.lore();
             if (existingLore != null && !existingLore.isEmpty()) {
@@ -148,10 +148,10 @@ public final class GuiManager {
         ItemStack item = new ItemStack(config.backButtonMaterial());
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.displayName(messages.miniMessage().deserialize(config.backButtonName()));
+            meta.displayName(messages.parseItem(config.backButtonName()));
             List<Component> lore = new ArrayList<>();
             for (String line : config.backButtonLore()) {
-                lore.add(messages.miniMessage().deserialize(line));
+                lore.add(messages.parseItem(line));
             }
             meta.lore(lore);
             item.setItemMeta(meta);
@@ -163,7 +163,7 @@ public final class GuiManager {
         ItemStack item = new ItemStack(def.icon());
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.displayName(messages.miniMessage().deserialize(def.displayName()));
+            meta.displayName(messages.parseItem(def.displayName()));
             List<Component> lore = new ArrayList<>();
             boolean alreadyApplied = effectService.hasEffect(targetItem, def.id());
 
@@ -172,7 +172,7 @@ public final class GuiManager {
                     : moneyFormat.format(def.priceMoney());
 
             for (String line : config.effectLoreFormat()) {
-                lore.add(messages.miniMessage().deserialize(
+                lore.add(messages.parseItem(
                         line,
                         Placeholder.parsed("price", formattedPrice),
                         Placeholder.parsed("points", String.valueOf(def.pricePoints()))
@@ -181,7 +181,7 @@ public final class GuiManager {
 
             if (alreadyApplied) {
                 lore.add(Component.empty());
-                lore.add(messages.miniMessage().deserialize(config.effectAlreadyAppliedLore()));
+                lore.add(messages.parseItem(config.effectAlreadyAppliedLore()));
             }
 
             meta.lore(lore);
